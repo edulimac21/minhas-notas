@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minhas Notas</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="login">
+<h1>Minhas Notas</h1><p>Entre para acessar sua nota.</p>
+<input id="email" type="email" placeholder="E-mail">
+<input id="password" type="password" placeholder="Senha">
+<button id="loginBtn">Entrar</button><button id="signupBtn" class="secondary">Criar conta</button>
+<div id="msg"></div>
+</div>
+<main id="app" class="hidden">
+<header><span id="status">Salvo ✓</span><button id="logoutBtn">Sair</button></header>
+<section class="paper"><textarea id="note" placeholder="Comece a escrever..."></textarea></section>
+</main>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body></html>
