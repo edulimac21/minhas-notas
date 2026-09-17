@@ -9,5 +9,5 @@ async function save(){if(!user)return;S.textContent="Salvando...";let {error}=aw
 N.oninput=()=>{resize();S.textContent="Digitando...";clearTimeout(timer);timer=setTimeout(save,700)}
 if(!ok)M.textContent="Falta conectar o armazenamento antes de publicar.";else{db=supabase.createClient(c.SUPABASE_URL,c.SUPABASE_ANON_KEY);db.auth.getSession().then(x=>x.data.session&&open(x.data.session.user));db.auth.onAuthStateChange((e,s)=>s?.user?open(s.user):close())}
 loginBtn.onclick=async()=>{if(!db)return;M.textContent="";let {error}=await db.auth.signInWithPassword({email:email.value.trim(),password:password.value});if(error)M.textContent="Confira e-mail e senha."}
-signupBtn.onclick=async()=>{if(!db)return;let {error}=await db.auth.signUp({email:email.value.trim(),password:password.value});M.textContent=error?"Não foi possível criar a conta.":"Conta criada. Confira seu e-mail se solicitado."}
+signupBtn.onclick=async()=>{if(!db)return;let {error}=await db.auth.signUp({email:email.value.trim(),password:password.value});M.textContent=error ? "Erro: " + error.message : "Conta criada. Confira seu e-mail.";}
 logoutBtn.onclick=()=>db&&db.auth.signOut();addEventListener("resize",resize);
